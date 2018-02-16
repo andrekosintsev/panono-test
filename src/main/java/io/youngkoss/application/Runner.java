@@ -98,7 +98,7 @@ public class Runner {
 			printResult();
 			List<Shape> toPrintResult = Shape.selectShapesToPrint(dataSource);
 			try (Writer writer = new BufferedWriter(
-					new OutputStreamWriter(new FileOutputStream("/Users/ykoss/Desktop/updated.db"), "utf-8"))) {
+					new OutputStreamWriter(new FileOutputStream(dataSource.getPathToWrite()), "utf-8"))) {
 				for (Shape shape : toPrintResult) {
 					writer.write(shape.getUuid() + "|" + shape.getCoordinates() + "\n");
 				}

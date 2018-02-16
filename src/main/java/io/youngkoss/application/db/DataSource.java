@@ -37,6 +37,7 @@ public class DataSource {
 	private String dbPassword;
 	private String dbCrypt;
 	private String prefix;
+	private String pathToWrite;
 
 	/**
 	 * @param configFile
@@ -79,6 +80,7 @@ public class DataSource {
 		dbPassword = properties.getProperty("dbpassword");
 		dbCrypt = properties.getProperty("dbcrypt");
 		prefix = properties.getProperty("prefix");
+		pathToWrite = properties.getProperty("path_to_write");
 
 		cpds = new ComboPooledDataSource();
 		cpds.setJdbcUrl("jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + database + "?");
@@ -208,6 +210,14 @@ public class DataSource {
 	 */
 	public String getDbPassword() {
 		return dbPassword;
+	}
+
+	public String getPathToWrite() {
+		return pathToWrite;
+	}
+
+	public void setPathToWrite(String pathToWrite) {
+		this.pathToWrite = pathToWrite;
 	}
 
 }

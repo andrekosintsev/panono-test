@@ -41,6 +41,9 @@ public class InitializationConfig {
 
 	@Value("${dbport}")
 	private String dbport;
+	
+	@Value("${path_to_write}")
+	private String path_to_write;
 
 	@Bean(name = "DataSource")
 	public DataSource getFinanceDataSource() throws Exception {
@@ -52,6 +55,7 @@ public class InitializationConfig {
 		properties.setProperty("dbpassword", dbpassword);
 		properties.setProperty("dbcrypt", dbcrypt);
 		properties.setProperty("prefix", prefix);
+		properties.setProperty("path_to_write", path_to_write);
 
 		DataSource instance = DataSource.getInstance(properties);
 		return instance;
